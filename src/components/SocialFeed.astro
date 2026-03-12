@@ -1,9 +1,15 @@
 ---
+import { Image } from "astro:assets";
+import reels1 from "../../public/reels-1.png";
+import reels2 from "../../public/reels-2.png";
+import reels3 from "../../public/reels-3.png";
+import reels4 from "../../public/reels-4.png";
+
 const reels = [
-  { url: "https://www.instagram.com/p/DU8NPEQDUTA/", thumbnail: "/reels-1.png", alt: "Amanda Ackiss showcasing a Virginia Beach listing in a St. Patrick's Day themed video" },
-  { url: "https://www.instagram.com/p/C-7ndFNO9wj/",  thumbnail: "/reels-2.png", alt: "Amanda Ackiss advertising a home listing in Norfolk, Virginia" },
-  { url: "https://www.instagram.com/p/DIT3kupu6Cp/",  thumbnail: "/reels-3.png", alt: "Amanda Ackiss showcasing a Chesapeake, Virginia listing in an Easter themed video" },
-  { url: "https://www.instagram.com/p/DSH0N-SDvrP/",  thumbnail: "/reels-4.png", alt: "Jeremy Ackiss advertising a home listing in a Christmas themed video" },
+  { url: "https://www.instagram.com/p/DU8NPEQDUTA/", thumbnail: reels1, alt: "Amanda Ackiss showcasing a Virginia Beach listing in a St. Patrick's Day themed video" },
+  { url: "https://www.instagram.com/p/C-7ndFNO9wj/",  thumbnail: reels2, alt: "Amanda Ackiss advertising a home listing in Norfolk, Virginia" },
+  { url: "https://www.instagram.com/p/DIT3kupu6Cp/",  thumbnail: reels3, alt: "Amanda Ackiss showcasing a Chesapeake, Virginia listing in an Easter themed video" },
+  { url: "https://www.instagram.com/p/DSH0N-SDvrP/",  thumbnail: reels4, alt: "Jeremy Ackiss advertising a home listing in a Christmas themed video" },
 ];
 ---
 
@@ -68,9 +74,12 @@ const reels = [
           class="group block border border-dark-600/50 hover:border-gold-500/50 transition-[border-color] duration-300 bg-dark-800"
         >
           <div class="relative w-full aspect-[9/16] overflow-hidden bg-dark-900">
-            <img
+            <Image
               src={reel.thumbnail}
               alt={reel.alt}
+              width={600}
+              quality={80}
+              format="webp"
               class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent"></div>
