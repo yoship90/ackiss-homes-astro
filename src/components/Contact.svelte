@@ -45,7 +45,7 @@
   <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 70% 50%, rgba(201,149,46,0.045) 0%, transparent 60%)" aria-hidden="true"></div>
 
   <div class="max-w-3xl mx-auto">
-    <div class="text-center mb-12">
+    <div class="sr sr-up text-center mb-12">
       <div class="flex items-center justify-center gap-3 mb-4">
         <div class="h-px w-8 bg-gold-500/40 flex-shrink-0"></div>
         <p class="text-gold-400 uppercase tracking-[0.3em] text-sm">Contact Us</p>
@@ -54,7 +54,7 @@
       <h2 class="text-4xl md:text-5xl font-heading font-bold">Let's Connect!</h2>
     </div>
 
-    <div class="bg-dark-700 border border-dark-600/50 rounded-sm p-8 md:p-10">
+    <div class="sr sr-up bg-dark-700 border border-dark-600/50 rounded-sm p-8 md:p-10" style="transition-delay: 100ms">
       {#if submitted}
         <div class="text-center py-8">
           <p class="text-gold-400 text-lg font-heading font-semibold mb-2">Thank you!</p>

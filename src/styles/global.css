@@ -188,3 +188,23 @@ h1, h2, h3, h4 {
     animation-play-state: paused;
   }
 }
+
+/* Scroll reveal — base hidden state */
+.sr {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sr-left  { transform: translateX(-40px); }
+.sr-right { transform: translateX(40px); }
+.sr-up    { transform: translateY(32px); }
+
+/* Revealed state — added by IntersectionObserver */
+.sr.in-view {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr { opacity: 1; transform: none; transition: none; }
+}

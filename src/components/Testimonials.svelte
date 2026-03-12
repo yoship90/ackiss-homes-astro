@@ -65,7 +65,7 @@
 
 <section id="testimonials" class="py-20 px-6 bg-dark-800 section-texture">
   <div class="max-w-4xl mx-auto">
-    <div class="text-center mb-16">
+    <div class="sr sr-up text-center mb-16">
       <div class="flex items-center justify-center gap-3 mb-4">
         <div class="h-px w-8 bg-gold-500/40 flex-shrink-0"></div>
         <p class="text-gold-400 uppercase tracking-[0.3em] text-sm">Testimonials</p>
@@ -75,7 +75,8 @@
     </div>
 
     <div
-      class="relative"
+      class="sr sr-up relative"
+      style="transition-delay: 100ms"
       onmouseenter={() => isPaused = true}
       onmouseleave={() => isPaused = false}
       onfocus={() => isPaused = true}

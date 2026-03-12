@@ -43,14 +43,14 @@
 
     <!-- Heading -->
     <div class="grid md:grid-cols-[1fr_2fr] gap-8 mb-20">
-      <div>
+      <div class="sr sr-left">
         <div class="flex items-center gap-3 mb-4">
           <p class="text-gold-400 uppercase tracking-[0.3em] text-sm">Who We Are</p>
           <div class="h-px w-8 bg-gold-500/40 flex-shrink-0"></div>
         </div>
         <h2 class="text-4xl md:text-5xl font-heading font-bold">About Ackiss Homes</h2>
       </div>
-      <div class="md:pt-8">
+      <div class="sr sr-right md:pt-8">
         <p class="text-gray-400 leading-relaxed text-lg mb-6">
           At Ackiss Homes, we believe that finding the right property is about more than square footage and price – it's about finding a place where life happens. We bring a personalized, client-first approach to every transaction.
         </p>
@@ -65,7 +65,8 @@
       {#each stats as stat, i}
         <div
           id="stat-{i}"
-          class="relative overflow-hidden bg-dark-700 border border-dark-600/50 rounded-sm p-8 text-center hover:-translate-y-2 hover:shadow-lg hover:shadow-gold-500/15 hover:border-gold-500/50 transition-[transform,box-shadow,border-color] duration-300 group"
+          class="sr sr-up relative overflow-hidden bg-dark-700 border border-dark-600/50 rounded-sm p-8 text-center hover:-translate-y-2 hover:shadow-lg hover:shadow-gold-500/15 hover:border-gold-500/50 transition-[transform,box-shadow,border-color] duration-300 group"
+          style="transition-delay: {i * 100}ms"
         >
           <div class="absolute top-0 left-0 h-[2px] w-0 bg-gradient-to-r from-gold-600 via-gold-400 to-gold-600 group-hover:w-full transition-[width] duration-500 ease-out" aria-hidden="true"></div>
           <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none" aria-hidden="true">

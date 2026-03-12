@@ -91,7 +91,7 @@
     <div class="grid md:grid-cols-2 gap-12 items-start">
 
       <!-- Left — value prop -->
-      <div class="md:sticky md:top-28">
+      <div class="sr sr-left md:sticky md:top-28">
         <div class="flex items-center gap-3 mb-4">
           <p class="text-gold-400 uppercase tracking-[0.3em] text-sm">Customized Home Search</p>
           <div class="h-px w-8 bg-gold-500/40 flex-shrink-0"></div>
@@ -111,7 +111,7 @@
       </div>
 
       <!-- Right — form -->
-      <div class="bg-dark-700 border border-dark-600/50 rounded-sm p-8">
+      <div class="sr sr-right bg-dark-700 border border-dark-600/50 rounded-sm p-8">
         {#if submitted}
           <div class="text-center py-8">
             <p class="text-gold-400 text-lg font-heading font-semibold mb-2">We're on it!</p>

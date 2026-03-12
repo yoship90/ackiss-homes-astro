@@ -29,5 +29,14 @@ const {
   </head>
   <body>
     <slot />
+  <script>
+    window.addEventListener("load", () => {
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); observer.unobserve(e.target); } }),
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll(".sr").forEach(el => observer.observe(el));
+    });
+  </script>
   </body>
 </html>
