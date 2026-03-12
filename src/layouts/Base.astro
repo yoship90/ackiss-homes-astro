@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import playfairUrl from "@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2?url";
+import interUrl from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
 
 interface Props {
   title?: string;
@@ -26,9 +28,13 @@ const {
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-package/favicon-96x96.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-package/apple-touch-icon.png" />
     <link rel="manifest" href="/favicon-package/site.webmanifest" />
+    <link rel="preload" href={playfairUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interUrl} as="font" type="font/woff2" crossorigin />
   </head>
   <body>
-    <slot />
+    <div class="motion-safe:animate-page-reveal">
+      <slot />
+    </div>
   <script>
     history.scrollRestoration = "manual";
     window.scrollTo(0, 0);
