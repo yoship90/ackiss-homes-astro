@@ -12,12 +12,20 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.7",
     "@astrojs/svelte": "^8.0.0",
     "@astrojs/vercel": "^10.0.0",
+    "@fontsource/inter": "^5.2.8",
+    "@fontsource/playfair-display": "^5.2.8",
     "@tailwindcss/vite": "^4.2.1",
+    "@vercel/blob": "^2.3.1",
     "astro": "^6.0.4",
     "svelte": "^5.53.11",
     "tailwindcss": "^4.2.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "uplot": "^1.6.32"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0"
   }
 }

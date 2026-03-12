@@ -1,1 +1,190 @@
 @import "tailwindcss";
+@import "uplot/dist/uPlot.min.css";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/600.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@theme {
+  --color-dark-900: #0a0a0a;
+  --color-dark-800: #1c1c1c;
+  --color-dark-700: #1a1a1a;
+  --color-dark-600: #2a2a2a;
+  --color-dark-500: #3a3a3a;
+  --color-gold-400: #e1a144;
+  --color-gold-500: #a06719;
+  --color-gold-600: #9b681a;
+  --color-warm-400: #b0a89e;
+  --font-heading: "Playfair Display", serif;
+  --font-body: "Inter", sans-serif;
+  --font-brand: "Playfair Display", serif;
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-page-reveal: page-reveal 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes page-reveal {
+  from { opacity: 0; transform: scale3d(0.95, 0.95, 1); }
+  to { opacity: 1; transform: scale3d(1, 1, 1); }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+::selection {
+  background-color: rgba(201, 149, 46, 0.25);
+  color: #f5f5f5;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-dark-900);
+  color: #f5f5f5;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+/* uPlot overrides — make chart fill container width, gold cursor */
+.uplot { width: 100% !important; }
+.u-wrap { width: 100% !important; }
+.u-hz .u-cursor-x { border-right-color: rgba(201, 149, 46, 0.5); }
+.u-hz .u-cursor-y { border-bottom-color: rgba(201, 149, 46, 0.2); }
+
+/* Subtle noise texture for alternate sections */
+.section-texture {
+  position: relative;
+  isolation: isolate;
+}
+.section-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 150px 150px;
+  opacity: 0.15;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Noise grain texture for Hero */
+.hero-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* Marquee scrolling text */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-animate {
+  animation: marquee 55s linear infinite;
+}
+
+/* Selected state for $ / % toggle buttons */
+.btn-option-selected {
+  background: linear-gradient(135deg, #9b681a 0%, #c9952e 40%, #e1a144 65%, #f0be68 100%);
+  border-color: #c9952e;
+  color: #0a0a0a;
+  font-weight: 600;
+}
+
+/* Find My Home button — shimmer at rest, living gold on hover */
+@keyframes btn-shimmer {
+  0%   { transform: translateX(-150%); }
+  40%, 100% { transform: translateX(350%); }
+}
+
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  --shimmer-color: rgba(240, 190, 104, 0.18);
+  --shimmer-duration: 4s;
+}
+
+@media (hover: hover) {
+  .btn-shimmer:hover {
+    --shimmer-color: rgba(255, 248, 220, 0.3);
+    --shimmer-duration: 1.4s;
+  }
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #9b681a 0%, #c9952e 40%, #e1a144 65%, #f0be68 100%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  z-index: 0;
+}
+
+@media (hover: hover) {
+  .btn-shimmer:hover::after {
+    opacity: 1;
+  }
+}
+
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    var(--shimmer-color) 50%,
+    transparent 100%
+  );
+  animation: btn-shimmer var(--shimmer-duration) ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.btn-shimmer-filled {
+  --shimmer-color: rgba(255, 248, 220, 0.22);
+  --shimmer-duration: 3.5s;
+}
+.btn-shimmer-filled:hover:not(:disabled) {
+  --shimmer-color: rgba(255, 248, 220, 0.38);
+  --shimmer-duration: 3.5s;
+}
+.btn-shimmer-filled::after {
+  opacity: 1 !important;
+  transition: none;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+.shake { animation: shake 0.4s ease; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-animate,
+  .btn-shimmer::before {
+    animation-play-state: paused;
+  }
+}
