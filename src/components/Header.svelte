@@ -71,7 +71,7 @@
   const navLinkBase = "text-[0.82rem] uppercase tracking-widest text-gray-300 hover:text-gold-400 focus-visible:text-gold-400 focus-visible:outline-none active:opacity-70 transition-[color,transform] duration-300";
 </script>
 
-<header class="fixed top-0 left-0 w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-dark-600/50">
+<header class="fixed top-0 left-0 w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-dark-600/50 motion-safe:animate-page-reveal origin-top">
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
     <a href="/" class="flex items-center gap-3 shrink-0"
       onclick={(e) => { e.preventDefault(); if (isHome) { window.scrollTo({ top: 0, behavior: "smooth" }); history.pushState(null, "", "/"); } else { window.location.href = "/"; } }}>
