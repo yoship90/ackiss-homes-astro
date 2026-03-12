@@ -36,8 +36,7 @@ const {
       <slot />
     </div>
   <script>
-    history.scrollRestoration = "manual";
-    window.scrollTo(0, 0);
+    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
     window.addEventListener("load", () => {
       const observer = new IntersectionObserver(
         (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); observer.unobserve(e.target); } }),
