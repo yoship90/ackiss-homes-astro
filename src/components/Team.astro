@@ -1,26 +1,6 @@
 ---
-import sharp from "sharp";
-import { resolve } from "path";
-
-const imgPath = resolve("./public/family-photo.jpg");
-
-// AVIF — best quality-per-byte, served to Chrome/Firefox/Safari 16+
-// withMetadata() preserves the Canon EOS color profile for accurate skin tones
-const avifBuffer = await sharp(imgPath)
-  .resize({ width: 1200, withoutEnlargement: true })
-  .withMetadata()
-  .avif({ quality: 80 })
-  .toBuffer();
-
-// WebP — fallback for older browsers
-const webpBuffer = await sharp(imgPath)
-  .resize({ width: 1200, withoutEnlargement: true })
-  .withMetadata()
-  .webp({ quality: 85 })
-  .toBuffer();
-
-const avifSrc = `data:image/avif;base64,${avifBuffer.toString("base64")}`;
-const webpSrc = `data:image/webp;base64,${webpBuffer.toString("base64")}`;
+import { Image } from "astro:assets";
+import familyPhoto from "../../public/family-photo.jpg";
 ---
 
 <section id="team" class="py-24 px-6 overflow-hidden relative">
@@ -36,16 +16,17 @@ const webpSrc = `data:image/webp;base64,${webpBuffer.toString("base64")}`;
 
       <!-- Photo -->
       <div class="h-72 md:h-full md:-ml-16 rounded-sm md:rounded-r-sm relative overflow-hidden">
-        <picture>
-          <source type="image/avif" srcset={avifSrc} />
-          <img
-            src={webpSrc}
-            alt="Amanda and Jeremy Ackiss — Ackiss Homes real estate team"
-            class="absolute inset-0 w-full h-full object-cover"
-            style="object-position: center 20%"
-            decoding="async"
-          />
-        </picture>
+        <Image
+          src={familyPhoto}
+          alt="Amanda and Jeremy Ackiss — Ackiss Homes real estate team"
+          width={1200}
+          quality={85}
+          format="webp"
+          class="absolute inset-0 w-full h-full object-cover"
+          style="object-position: center 20%"
+          loading="eager"
+          fetchpriority="high"
+        />
         <!-- Gold accent bar -->
         <div class="absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r from-gold-500/60 to-transparent z-10"></div>
       </div>
