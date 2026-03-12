@@ -16,15 +16,18 @@ import StickyCTA from "../components/StickyCTA.astro";
 <Base>
   <Header client:load />
   <StickyCTA />
-  <main>
-    <Hero client:load />
-    <Team />
-    <Services />
-    <PropertyInquiry client:load />
-    <PaymentCalculator client:load />
-    <Testimonials client:load />
-    <SocialFeed />
-    <Contact client:load />
-  </main>
-  <Footer />
+  <div class="motion-safe:animate-page-reveal origin-top">
+    <main>
+      <Hero client:load />
+      <Team />
+      <Services />
+      <PropertyInquiry client:load />
+      <PaymentCalculator client:load />
+      <Testimonials client:load />
+      <SocialFeed />
+      <Contact client:load />
+    </main>
+    <Footer />
+  </div>
+
 </Base>
