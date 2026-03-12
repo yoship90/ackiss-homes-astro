@@ -194,7 +194,7 @@
       {#if mobileCommunitiesOpen}
         <div class="pl-4 pb-2 border-l border-dark-600/50 ml-1">
           {#each communities as city}
-            <span class="block py-2 text-sm uppercase tracking-widest text-gray-500">{city}</span>
+            <span class="block py-2 text-sm uppercase tracking-widest text-gray-400">{city}</span>
           {/each}
         </div>
       {/if}

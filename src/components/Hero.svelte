@@ -136,7 +136,7 @@
 
       <!-- Zillow review links -->
       <div style={r(520).style} class="{r(520).class} flex flex-wrap items-center justify-center gap-3">
-        <span class="text-[11px] uppercase tracking-[0.25em] text-gray-600">Verified reviews on</span>
+        <span class="text-[11px] uppercase tracking-[0.25em] text-gray-400">Verified reviews on</span>
         <div class="h-px w-4 bg-gold-500/30"></div>
         <a
           href="https://www.zillow.com/profile/amanda5867"
