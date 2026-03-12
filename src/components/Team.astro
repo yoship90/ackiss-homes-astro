@@ -35,7 +35,7 @@ const webpSrc = `data:image/webp;base64,${webpBuffer.toString("base64")}`;
     <div class="grid md:grid-cols-[2fr_3fr] gap-0 items-stretch">
 
       <!-- Photo -->
-      <div class="h-72 md:h-full md:-ml-16 rounded-sm md:rounded-r-sm relative overflow-hidden">
+      <div class="h-72 md:h-full md:-ml-16 rounded-sm md:rounded-r-sm relative overflow-hidden motion-safe:[animation:slide-from-left_0.7s_cubic-bezier(0.16,1,0.3,1)_0.3s_both]">
         <picture>
           <source type="image/avif" srcset={avifSrc} />
           <img
@@ -51,7 +51,7 @@ const webpSrc = `data:image/webp;base64,${webpBuffer.toString("base64")}`;
       </div>
 
       <!-- Info -->
-      <div class="p-8 md:p-14 md:pl-16">
+      <div class="p-8 md:p-14 md:pl-16 motion-safe:[animation:slide-from-right_0.7s_cubic-bezier(0.16,1,0.3,1)_0.45s_both]">
         <div class="flex items-center gap-3 mb-3">
           <p class="text-gold-400 uppercase tracking-[0.3em] text-sm">Meet the Team</p>
           <div class="h-px w-8 bg-gold-500/40 flex-shrink-0"></div>
