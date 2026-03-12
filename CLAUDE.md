@@ -8,7 +8,7 @@
 - If no reference image: design from scratch with high craft (see guardrails below).
 
 ## Local Server
-- Start the dev server: `export PATH="/c/Users/Admin/nodejs:$PATH" && npm run dev -- --port 3001`
+- Start the dev server: `export PATH="/c/nvm4w/nodejs:$PATH" && npm run dev -- --port 3001`
 - Next.js live site always uses port 3000 — Astro always uses port 3001. Never start Astro on 3000.
 - If the server is already running, do not start a second instance.
 
@@ -54,9 +54,9 @@
 - Deployed on Vercel (auto-deploys `dev` branch to preview URL)
 - GitHub: yoship90/ackiss-homes-astro
 - Preview URL: Vercel preview link only (no custom domain)
-- Node.js installed locally at C:/Users/Admin/nodejs (not in system PATH — use `export PATH="/c/Users/Admin/nodejs:$PATH"` before npm/node commands)
+- Node.js v24.x managed by nvm — path is `/c/nvm4w/nodejs`. Use `export PATH="/c/nvm4w/nodejs:$PATH"` before npm/node commands
 - GitHub CLI installed at C:/Users/Admin/gh-temp/bin/gh.exe
-- Start local dev server: `export PATH="/c/Users/Admin/nodejs:$PATH" && npm run dev -- --port 3001`
+- Start local dev server: `export PATH="/c/nvm4w/nodejs:$PATH" && npm run dev -- --port 3001`
 
 ## Branch & Deploy Workflow
 - All work happens on the `dev` branch
