@@ -36,13 +36,22 @@ const {
       <slot />
     </div>
   <script>
-    requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
     window.addEventListener("load", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
       const observer = new IntersectionObserver(
         (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); observer.unobserve(e.target); } }),
         { threshold: 0.15 }
       );
-      document.querySelectorAll(".sr").forEach(el => observer.observe(el));
+      document.querySelectorAll(".sr").forEach(el => {
+        // Skip animation on mobile or if already in viewport
+        if (isMobile || el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add("in-view");
+        } else {
+          observer.observe(el);
+        }
+      });
     });
   </script>
   </body>
