@@ -552,7 +552,7 @@
 
     <!-- Heading -->
     <div class="grid md:grid-cols-[2fr_3fr] gap-8 mb-10">
-      <div>
+      <div class="sr sr-up">
         <div class="flex items-center gap-3 mb-4">
           <p class="text-gold-400 uppercase tracking-[0.3em] text-sm">Plan Your Purchase</p>
           <div class="h-px w-8 bg-gold-500/40 flex-shrink-0"></div>

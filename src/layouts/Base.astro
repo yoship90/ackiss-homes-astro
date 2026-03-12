@@ -37,7 +37,7 @@ const {
     </div>
   <script>
     window.addEventListener("load", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
 
       const isMobile = window.matchMedia("(max-width: 767px)").matches;
       const observer = new IntersectionObserver(
