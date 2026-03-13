@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config';
 
 import svelte from '@astrojs/svelte';
 import sitemap from '@astrojs/sitemap';
-import partytown from '@astrojs/partytown';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel';
 
@@ -13,7 +12,6 @@ export default defineConfig({
 
   integrations: [
     svelte(),
-    partytown({ config: { forward: ["dataLayer.push"] } }),
     sitemap({
       filter: (page) =>
         // Exclude private/internal pages from sitemap
