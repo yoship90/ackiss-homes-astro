@@ -96,6 +96,7 @@
         throw new Error(body.error || `Server error ${res.status}`);
       }
       submitted = true;
+      if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { event_category: "property_inquiry" });
     } catch (err) {
       error = err instanceof Error ? err.message : "Something went wrong. Please try again.";
     } finally {

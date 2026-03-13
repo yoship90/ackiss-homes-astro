@@ -51,6 +51,7 @@
         throw new Error(body.error || `Server error ${res.status}`);
       }
       submitted = true;
+      if (typeof window.gtag === "function") window.gtag("event", "generate_lead", { event_category: "contact" });
     } catch (err) {
       error = err instanceof Error ? err.message : "Something went wrong. Please try again or email us at ackisshomes@gmail.com.";
     } finally {
