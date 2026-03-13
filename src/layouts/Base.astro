@@ -58,9 +58,9 @@ const {
     <link rel="preload" href={playfairUrl} as="font" type="font/woff2" crossorigin />
     <link rel="preload" href={interUrl} as="font" type="font/woff2" crossorigin />
 
-    <!-- Google Analytics -->
-    <script async is:inline src="https://www.googletagmanager.com/gtag/js?id=G-Y20W26TBDS"></script>
-    <script is:inline>
+    <!-- Google Analytics (runs in Web Worker via Partytown) -->
+    <script async type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-Y20W26TBDS"></script>
+    <script type="text/partytown" is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
