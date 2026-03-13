@@ -21,6 +21,13 @@
   let submitted = $state(false);
   let loading = $state(false);
   let error = $state("");
+  let confirmEl = $state<HTMLElement | null>(null);
+
+  $effect(() => {
+    if (submitted && confirmEl) {
+      confirmEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
   let phone = $state("");
   let beds = $state("Any");
   let baths = $state("Any");
@@ -124,7 +131,7 @@
       <!-- Right — form -->
       <div class="sr sr-right bg-dark-700 border border-dark-600/50 rounded-sm p-8">
         {#if submitted}
-          <div class="text-center py-8">
+          <div bind:this={confirmEl} class="text-center py-8">
             <p class="text-gold-400 text-lg font-heading font-semibold mb-2">We're on it!</p>
             <p class="text-gray-400">We'll search the MLS for homes that match and reach out to you shortly.</p>
           </div>
