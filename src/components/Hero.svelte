@@ -11,8 +11,8 @@
   let logoEl: HTMLDivElement | null = null;
   let prefersReducedMotion = $state(false);
 
-  // Animated counter state
-  let counts = $state(stats.map(() => 0));
+  // Initialize to target values so SSR renders correct numbers immediately (LCP fix)
+  let counts = $state(stats.map(s => s.target));
 
   onMount(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -33,29 +33,10 @@
       window.addEventListener("scroll", handleScroll, { passive: true });
     }
 
-    // Animate counters when revealed
-    const unwatch = $effect.root(() => {
-      $effect(() => {
-        if (!revealed) return;
-        stats.forEach((stat, i) => {
-          const duration = 1500;
-          const steps = 40;
-          const increment = stat.target / steps;
-          let step = 0;
-          const timer = setInterval(() => {
-            step++;
-            counts[i] = Math.min(Math.round(increment * step), stat.target);
-            if (step >= steps) clearInterval(timer);
-          }, duration / steps);
-        });
-      });
-    });
-
     return () => {
       clearTimeout(t);
       window.removeEventListener("scroll", handleScroll);
       mq.removeEventListener("change", handler);
-      unwatch();
     };
   });
 
