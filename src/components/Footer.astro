@@ -14,7 +14,7 @@ const year = new Date().getFullYear();
   <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/35 to-transparent" aria-hidden="true"></div>
   <div class="max-w-6xl mx-auto">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-      <a href="/">
+      <a href="/" id="footer-logo-link">
         <img src="/logo-full-v2.svg" alt="Ackiss Homes" width="1924" height="765" class="w-[32rem] h-auto" />
       </a>
       <div class="flex gap-6">
@@ -59,3 +59,16 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<script>
+  const link = document.getElementById("footer-logo-link");
+  if (link) {
+    link.addEventListener("click", (e) => {
+      if (window.location.pathname === "/") {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        history.pushState(null, "", "/");
+      }
+    });
+  }
+</script>
