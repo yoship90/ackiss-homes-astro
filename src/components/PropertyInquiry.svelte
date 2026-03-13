@@ -167,9 +167,9 @@
             <div>
               <p class="block text-sm text-gray-400 mb-2 uppercase tracking-wider">Price Range</p>
               <div class="flex items-center gap-3">
-                <input type="text" bind:value={priceMin} class="w-full bg-dark-800 border border-dark-600 rounded-sm px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" placeholder="Min (e.g. $200k)" />
+                <input type="text" inputmode="decimal" bind:value={priceMin} class="w-full bg-dark-800 border border-dark-600 rounded-sm px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" placeholder="Min (e.g. $200k)" />
                 <span class="text-gray-600 flex-shrink-0">–</span>
-                <input type="text" bind:value={priceMax} class="w-full bg-dark-800 border border-dark-600 rounded-sm px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" placeholder="Max (e.g. $500k)" />
+                <input type="text" inputmode="decimal" bind:value={priceMax} class="w-full bg-dark-800 border border-dark-600 rounded-sm px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" placeholder="Max (e.g. $500k)" />
               </div>
             </div>
 
