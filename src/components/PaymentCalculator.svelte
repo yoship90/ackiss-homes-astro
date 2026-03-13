@@ -420,7 +420,7 @@
         {
           // Y axis — font matches Inter used elsewhere on page
           stroke: "#9ca3af",
-          font:   `${Math.round(11 * devicePixelRatio)}px "Inter", system-ui, sans-serif`,
+          font:   `11px "Inter", system-ui, sans-serif`,
           ticks:  { show: false },
           grid:   { stroke: "rgba(255,255,255,0.04)", width: 1 },
           border: { show: false },
@@ -480,7 +480,7 @@
           ctx.font = `${Math.round(10 * dpr)}px "Inter", system-ui, sans-serif`;
 
           // Year labels (quarterly section)
-          ctx.fillStyle = "rgba(156,163,175,0.70)";
+          ctx.fillStyle = "#9ca3af";
           for (const { idx, text } of yearLabels) {
             const x = u.valToPos(idx, "x", true);
             ctx.fillText(text, x, labelY);
