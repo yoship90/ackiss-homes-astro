@@ -216,7 +216,7 @@
                   <label for="inquiry-phone" class="block text-sm text-gray-400 mb-1.5 uppercase tracking-wider">Phone</label>
                   <input type="tel" id="inquiry-phone" name="phone" required autocomplete="tel"
                     value={phone}
-                    oninput={(e) => phone = formatPhone((e.currentTarget as HTMLInputElement).value)}
+                    oninput={(e) => { const el = e.currentTarget as HTMLInputElement; phone = formatPhone(el.value); el.value = phone; }}
                     placeholder="(      )"
                     class="w-full bg-dark-800 border border-dark-600 rounded-sm px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors" />
                 </div>
