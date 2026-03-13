@@ -11,6 +11,7 @@ import SocialFeed from "../components/SocialFeed.astro";
 import Contact from "../components/Contact.svelte";
 import Footer from "../components/Footer.astro";
 import StickyCTA from "../components/StickyCTA.astro";
+import SectionDivider from "../components/SectionDivider.astro";
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || "https://www.ackisshomes.com";
 
@@ -79,11 +80,15 @@ const jsonLd = {
     <main>
       <Hero client:load />
       <Team />
+      <SectionDivider from="dark-900" to="dark-800" />
       <Services />
+      <SectionDivider from="dark-800" to="dark-900" />
       <PropertyInquiry client:load />
       <PaymentCalculator client:load />
+      <SectionDivider from="dark-900" to="dark-800" />
       <Testimonials client:load />
       <SocialFeed />
+      <SectionDivider from="dark-800" to="dark-900" />
       <Contact client:load />
     </main>
     <Footer />

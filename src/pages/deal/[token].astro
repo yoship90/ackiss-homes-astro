@@ -1,0 +1,10 @@
+---
+export const prerender = false;
+
+import Base from "../../layouts/Base.astro";
+import Deal from "../../components/Deal.svelte";
+---
+
+<Base title="Closing Progress — Ackiss Homes">
+  <Deal client:load />
+</Base>

@@ -1,0 +1,49 @@
+---
+interface Props {
+  from: "dark-900" | "dark-800";
+  to: "dark-900" | "dark-800";
+}
+
+const { from, to } = Astro.props;
+
+const colorMap = {
+  "dark-900": "#0a0a0a",
+  "dark-800": "#1c1c1c",
+};
+
+const fromColor = colorMap[from];
+const toColor = colorMap[to];
+const uid = Math.random().toString(36).slice(2);
+---
+
+<div class="relative w-full h-16 md:h-24 -my-px" aria-hidden="true">
+  <svg
+    viewBox="0 0 1440 96"
+    preserveAspectRatio="none"
+    class="absolute inset-0 w-full h-full"
+  >
+    <defs>
+      <linearGradient id={`gold-accent-${uid}`} x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#c9952e" stop-opacity="0" />
+        <stop offset="30%"  stop-color="#d4a853" stop-opacity="0.4" />
+        <stop offset="50%"  stop-color="#c9952e" stop-opacity="0.4" />
+        <stop offset="70%"  stop-color="#d4a853" stop-opacity="0.4" />
+        <stop offset="100%" stop-color="#c9952e" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+
+    <!-- Top fill -->
+    <path d="M0,0 L1440,0 L1440,48 Q1080,96 720,64 Q360,32 0,56 L0,0Z" fill={fromColor} />
+
+    <!-- Bottom fill -->
+    <path d="M0,56 Q360,32 720,64 Q1080,96 1440,48 L1440,96 L0,96Z" fill={toColor} />
+
+    <!-- Gold accent line -->
+    <path
+      d="M0,56 Q360,32 720,64 Q1080,96 1440,48"
+      fill="none"
+      stroke={`url(#gold-accent-${uid})`}
+      stroke-width="1.5"
+    />
+  </svg>
+</div>
