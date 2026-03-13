@@ -75,7 +75,7 @@
   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
     <a href="/" class="flex items-center gap-3 shrink-0"
       onclick={(e) => { e.preventDefault(); if (isHome) { window.scrollTo({ top: 0, behavior: "smooth" }); history.pushState(null, "", "/"); } else { window.location.href = "/"; } }}>
-      <img src="/logo-a-v2.svg" alt="Ackiss Homes" width="788" height="716" class="h-14 w-auto" loading="eager" fetchpriority="high" />
+      <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="788" height="716" class="h-14 w-auto" loading="eager" fetchpriority="high" />
       <div class="h-7 w-px bg-gold-500/40 shrink-0" aria-hidden="true"></div>
       <div class="flex flex-col leading-none gap-1 whitespace-nowrap">
         <div class="flex items-baseline gap-2">

@@ -85,7 +85,7 @@
     opacity-[0.4] md:opacity-[0.75]"
   >
     <img
-      src="/logo-a-v2.svg"
+      src="/logo-a-v2-optimized.svg"
       alt=""
       width="788"
       height="716"

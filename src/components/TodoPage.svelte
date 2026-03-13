@@ -232,7 +232,7 @@
   <div class="min-h-screen bg-black flex items-center justify-center px-6">
     <div class="relative w-full max-w-sm text-center">
       <a href="/" class="inline-flex flex-col items-center gap-2 mb-10 focus-visible:outline-none focus-visible:opacity-70">
-        <img src="/logo-a-v2.svg" alt="Ackiss Homes" width="40" height="37" class="opacity-80 h-10 w-auto" />
+        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="40" height="37" class="opacity-80 h-10 w-auto" />
         <span class="text-[9px] uppercase tracking-[0.35em] text-gold-500/70">Internal Access</span>
       </a>
       <h1 class="font-heading font-bold text-3xl text-white mb-2">Team Portal</h1>

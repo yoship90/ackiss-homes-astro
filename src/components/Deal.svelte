@@ -146,7 +146,7 @@
 
     <div class="relative w-full max-w-sm text-center">
       <a href="/" class="inline-flex flex-col items-center gap-2 mb-10 focus-visible:outline-none focus-visible:opacity-70">
-        <img src="/logo-a-v2.svg" alt="Ackiss Homes" width="40" height="40" class="opacity-80" />
+        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="40" height="40" class="opacity-80" />
         <span class="text-[9px] uppercase tracking-[0.35em] text-gold-500/70">Internal Access</span>
       </a>
 
@@ -191,7 +191,7 @@
     <header class="relative z-10 border-b border-white/5 px-6 py-4">
       <div class="max-w-2xl mx-auto flex items-center justify-between">
         <a href="/" class="flex items-center gap-3 focus-visible:outline-none focus-visible:opacity-70">
-          <img src="/logo-a-v2.svg" alt="Ackiss Homes" width="32" height="32" class="opacity-90" />
+          <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="32" height="32" class="opacity-90" />
           <div>
             <div class="text-white font-heading font-bold text-sm leading-none tracking-wide">Ackiss Homes</div>
             <div class="text-gold-500 text-[8px] uppercase tracking-[0.25em] mt-0.5">Virginia Beach</div>
