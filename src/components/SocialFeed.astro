@@ -66,12 +66,13 @@ const reels = [
     </div>
 
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-      {reels.map((reel) => (
+      {reels.map((reel, i) => (
         <a
           href={reel.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="group block border border-dark-600/50 hover:border-gold-500/50 transition-[border-color] duration-300 bg-dark-800"
+          class="sr sr-up group block border border-dark-600/50 hover:border-gold-500/50 transition-[border-color] duration-300 bg-dark-800"
+          style={`transition-delay: ${i * 100}ms`}
         >
           <div class="relative w-full aspect-[9/16] overflow-hidden bg-dark-900">
             <Image
