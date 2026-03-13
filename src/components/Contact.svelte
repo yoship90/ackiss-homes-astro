@@ -31,7 +31,6 @@
     }
     loading = true;
     error = "";
-    const data = new FormData(e.currentTarget as HTMLFormElement);
 
     try {
       const res = await fetch("/api/lead", {
