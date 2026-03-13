@@ -84,7 +84,7 @@
   const btnInactive = "bg-dark-800 border-gray-600 text-gray-400 hover:border-gold-500/50 hover:text-gray-200";
 </script>
 
-<section id="property-inquiry" class="py-20 px-6 relative overflow-hidden">
+<section id="property-inquiry" class="py-20 px-6 relative overflow-hidden scroll-mt-28 md:scroll-mt-16">
   <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at 30% 50%, rgba(201,149,46,0.06) 0%, transparent 60%)" aria-hidden="true"></div>
 
   <div class="max-w-6xl mx-auto">
