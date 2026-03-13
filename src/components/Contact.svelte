@@ -46,10 +46,13 @@
           website: data.get("website"),
         }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `Server error ${res.status}`);
+      }
       submitted = true;
-    } catch {
-      error = "Something went wrong. Please try again or email us at ackisshomes@gmail.com.";
+    } catch (err) {
+      error = err instanceof Error ? err.message : "Something went wrong. Please try again or email us at ackisshomes@gmail.com.";
     } finally {
       loading = false;
     }
