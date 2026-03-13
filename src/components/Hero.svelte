@@ -89,7 +89,23 @@
     style="background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,149,46,0.05) 0%, transparent 70%)"
   ></div>
 
-  <!-- Logo watermark — temporarily removed for LCP testing -->
+  <!-- Logo watermark -->
+  <div
+    bind:this={logoEl}
+    class="absolute inset-y-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[16rem]
+    flex items-center will-change-transform pointer-events-none
+    opacity-[0.4] md:opacity-[0.75]"
+  >
+    <img
+      src="/logo-a-v2-optimized.svg"
+      alt=""
+      width="788"
+      height="716"
+      fetchpriority="high"
+      class="w-[65vw] md:w-[30rem] h-auto object-contain mix-blend-lighten
+      [mask-image:linear-gradient(to_right,transparent,black_12%)]"
+    />
+  </div>
 
   <!-- Grain texture -->
   <div class="absolute inset-0 hero-grain opacity-[0.04] pointer-events-none" aria-hidden="true"></div>
