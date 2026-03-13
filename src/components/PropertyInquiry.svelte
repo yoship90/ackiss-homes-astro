@@ -73,14 +73,18 @@
           priceMax,
           propertyTypes: propertyType,
           timeline,
+          preApproval: data.get("preApproval") || "",
           notes: data.get("notes") || "",
           website: data.get("website"),
         }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || `Server error ${res.status}`);
+      }
       submitted = true;
-    } catch {
-      error = "Something went wrong. Please try again.";
+    } catch (err) {
+      error = err instanceof Error ? err.message : "Something went wrong. Please try again.";
     } finally {
       loading = false;
     }
