@@ -11,8 +11,8 @@
   let logoEl: HTMLDivElement | null = null;
   let prefersReducedMotion = $state(false);
 
-  // Animated counter state
-  let counts = $state(stats.map(() => 0));
+  // SSR: initialize to target values so crawlers/no-JS see final numbers
+  let counts = $state(stats.map(s => s.target));
 
   onMount(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -21,6 +21,28 @@
     mq.addEventListener("change", handler);
 
     const t = setTimeout(() => { revealed = true; }, prefersReducedMotion ? 0 : 80);
+
+    // Count-up animation — starts after stats fade in (~510ms after mount)
+    let countTimer: ReturnType<typeof setTimeout> | undefined;
+    if (!prefersReducedMotion) {
+      counts = stats.map(() => 0);
+      countTimer = setTimeout(() => {
+        const duration = 1200;
+        const fps = 60;
+        const steps = (duration / 1000) * fps;
+        let step = 0;
+        const interval = setInterval(() => {
+          step++;
+          const progress = step / steps;
+          const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+          counts = stats.map(s => Math.round(s.target * eased));
+          if (step >= steps) {
+            counts = stats.map(s => s.target);
+            clearInterval(interval);
+          }
+        }, 1000 / fps);
+      }, 510);
+    }
 
     // Parallax on logo — desktop only
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
@@ -33,29 +55,11 @@
       window.addEventListener("scroll", handleScroll, { passive: true });
     }
 
-    // Animate counters when revealed
-    const unwatch = $effect.root(() => {
-      $effect(() => {
-        if (!revealed) return;
-        stats.forEach((stat, i) => {
-          const duration = 1500;
-          const steps = 40;
-          const increment = stat.target / steps;
-          let step = 0;
-          const timer = setInterval(() => {
-            step++;
-            counts[i] = Math.min(Math.round(increment * step), stat.target);
-            if (step >= steps) clearInterval(timer);
-          }, duration / steps);
-        });
-      });
-    });
-
     return () => {
       clearTimeout(t);
+      clearTimeout(countTimer);
       window.removeEventListener("scroll", handleScroll);
       mq.removeEventListener("change", handler);
-      unwatch();
     };
   });
 
@@ -63,6 +67,14 @@
     return {
       style: `opacity: ${revealed ? 1 : 0}; transform: translateY(${revealed ? 0 : lift}px); transition-delay: ${delay}ms;`,
       class: "transition-[transform,opacity] duration-700 ease-out",
+    };
+  }
+
+  // Transform-only variant — keeps element visible for LCP while still animating
+  function rt(delay: number, lift = 20) {
+    return {
+      style: `transform: translateY(${revealed ? 0 : lift}px); transition-delay: ${delay}ms;`,
+      class: "transition-transform duration-700 ease-out",
     };
   }
 </script>
@@ -89,6 +101,7 @@
       alt=""
       width="788"
       height="716"
+      fetchpriority="high"
       class="w-[65vw] md:w-[30rem] h-auto object-contain mix-blend-lighten
       [mask-image:linear-gradient(to_right,transparent,black_12%)]"
     />
@@ -110,8 +123,8 @@
 
       <!-- Headline -->
       <h1 class="text-6xl md:text-8xl font-heading font-bold leading-[1.05] mb-8 tracking-tight">
-        <span style={r(60, 20).style} class="{r(60, 20).class} block">Where</span>
-        <span style={r(150, 20).style} class="{r(150, 20).class} block text-gold-400">Home Begins</span>
+        <span style={rt(60).style} class="{rt(60).class} block">Where</span>
+        <span style={rt(150).style} class="{rt(150).class} block text-gold-400">Home Begins</span>
       </h1>
 
       <!-- Brand copy -->
