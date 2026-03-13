@@ -1,4 +1,10 @@
 <script lang="ts">
+  function formatPrice(value: string): string {
+    const digits = value.replace(/\D/g, "");
+    if (!digits) return "";
+    return parseInt(digits).toLocaleString();
+  }
+
   function formatPhone(value: string): string {
     const d = value.replace(/\D/g, "").slice(0, 10);
     if (d.length <= 3) return d.length ? `(${d}` : "";
@@ -167,9 +173,23 @@
             <div>
               <p class="block text-sm text-gray-400 mb-2 uppercase tracking-wider">Price Range</p>
               <div class="flex items-center gap-3">
-                <input type="text" inputmode="decimal" bind:value={priceMin} class="w-full bg-dark-800 border border-dark-600 rounded-sm px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" placeholder="Min (e.g. $200k)" />
+                <div class="relative w-full">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm select-none">$</span>
+                  <input type="text" inputmode="decimal"
+                    value={priceMin}
+                    oninput={(e) => { const el = e.currentTarget as HTMLInputElement; priceMin = formatPrice(el.value); el.value = priceMin; }}
+                    placeholder="200,000"
+                    class="w-full bg-dark-800 border border-dark-600 rounded-sm pl-7 pr-3 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" />
+                </div>
                 <span class="text-gray-600 flex-shrink-0">–</span>
-                <input type="text" inputmode="decimal" bind:value={priceMax} class="w-full bg-dark-800 border border-dark-600 rounded-sm px-4 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" placeholder="Max (e.g. $500k)" />
+                <div class="relative w-full">
+                  <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm select-none">$</span>
+                  <input type="text" inputmode="decimal"
+                    value={priceMax}
+                    oninput={(e) => { const el = e.currentTarget as HTMLInputElement; priceMax = formatPrice(el.value); el.value = priceMax; }}
+                    placeholder="500,000"
+                    class="w-full bg-dark-800 border border-dark-600 rounded-sm pl-7 pr-3 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" />
+                </div>
               </div>
             </div>
 
