@@ -69,6 +69,14 @@
       class: "transition-[transform,opacity] duration-700 ease-out",
     };
   }
+
+  // Transform-only variant — keeps element visible for LCP while still animating
+  function rt(delay: number, lift = 20) {
+    return {
+      style: `transform: translateY(${revealed ? 0 : lift}px); transition-delay: ${delay}ms;`,
+      class: "transition-transform duration-700 ease-out",
+    };
+  }
 </script>
 
 <section
@@ -115,8 +123,8 @@
 
       <!-- Headline -->
       <h1 class="text-6xl md:text-8xl font-heading font-bold leading-[1.05] mb-8 tracking-tight">
-        <span style={r(60, 20).style} class="{r(60, 20).class} block">Where</span>
-        <span style={r(150, 20).style} class="{r(150, 20).class} block text-gold-400">Home Begins</span>
+        <span style={rt(60).style} class="{rt(60).class} block">Where</span>
+        <span style={rt(150).style} class="{rt(150).class} block text-gold-400">Home Begins</span>
       </h1>
 
       <!-- Brand copy -->
