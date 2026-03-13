@@ -10,9 +10,25 @@
   let loading = $state(false);
   let error = $state("");
   let phone = $state("");
+  let confirmEl = $state<HTMLElement | null>(null);
+
+  $effect(() => {
+    if (submitted && confirmEl) {
+      confirmEl.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
 
   async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
+    const data = new FormData(e.currentTarget as HTMLFormElement);
+    const firstName = (data.get("firstName") as string)?.trim();
+    const email = (data.get("email") as string)?.trim();
+    const phone = (data.get("phone") as string)?.trim();
+    const message = (data.get("message") as string)?.trim();
+    if (!firstName || !email || !phone || !message) {
+      error = "Please fill in all required fields.";
+      return;
+    }
     loading = true;
     error = "";
     const data = new FormData(e.currentTarget as HTMLFormElement);
@@ -56,12 +72,12 @@
 
     <div class="sr sr-up bg-dark-700 border border-dark-600/50 rounded-sm p-8 md:p-10" style="transition-delay: 100ms">
       {#if submitted}
-        <div class="text-center py-8">
+        <div bind:this={confirmEl} class="text-center py-8">
           <p class="text-gold-400 text-lg font-heading font-semibold mb-2">Thank you!</p>
           <p class="text-gray-400">We've received your message and will get back to you shortly.</p>
         </div>
       {:else}
-        <form onsubmit={handleSubmit} class="space-y-5" aria-label="Contact us" novalidate>
+        <form onsubmit={handleSubmit} class="space-y-5" aria-label="Contact us">
           <!-- Honeypot -->
           <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
             <label for="contact-website">Website</label>

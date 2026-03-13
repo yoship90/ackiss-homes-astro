@@ -45,10 +45,17 @@
 
   async function handleSubmit(e: SubmitEvent) {
     e.preventDefault();
-    loading = true;
-    error = "";
     const form = e.currentTarget as HTMLFormElement;
     const data = new FormData(form);
+    const firstName = (data.get("firstName") as string)?.trim();
+    const email = (data.get("email") as string)?.trim();
+    const phone = (data.get("phone") as string)?.trim();
+    if (!firstName || !email || !phone) {
+      error = "Please fill in all required fields.";
+      return;
+    }
+    loading = true;
+    error = "";
 
     try {
       const res = await fetch("/api/lead", {
@@ -118,7 +125,7 @@
             <p class="text-gray-400">We'll search the MLS for homes that match and reach out to you shortly.</p>
           </div>
         {:else}
-          <form onsubmit={handleSubmit} class="space-y-6" aria-label="Home search preferences" novalidate>
+          <form onsubmit={handleSubmit} class="space-y-6" aria-label="Home search preferences">
             <!-- Honeypot -->
             <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
               <label for="inquiry-website">Website</label>
