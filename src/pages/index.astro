@@ -11,9 +11,68 @@ import SocialFeed from "../components/SocialFeed.astro";
 import Contact from "../components/Contact.svelte";
 import Footer from "../components/Footer.astro";
 import StickyCTA from "../components/StickyCTA.astro";
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || "https://www.ackisshomes.com";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "RealEstateAgent",
+      "@id": `${siteUrl}/#business`,
+      name: "Ackiss Homes",
+      url: siteUrl,
+      logo: `${siteUrl}/logo-full-v2.svg`,
+      description:
+        "Buying, selling, or investing in Virginia Beach and Hampton Roads? Ackiss Homes brings local expertise, integrity, and a client-first approach to every transaction.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "2135 General Booth Blvd, Suite 146",
+        addressLocality: "Virginia Beach",
+        addressRegion: "VA",
+        postalCode: "23454",
+        addressCountry: "US",
+      },
+      areaServed: [
+        "Virginia Beach, VA",
+        "Chesapeake, VA",
+        "Suffolk, VA",
+        "Portsmouth, VA",
+        "Newport News, VA",
+        "Hampton, VA",
+        "Yorktown, VA",
+        "Williamsburg, VA",
+      ],
+      sameAs: [
+        "https://www.facebook.com/profile.php?id=100090275910543",
+        "https://www.instagram.com/ackisshomes/",
+      ],
+      employee: [
+        { "@id": `${siteUrl}/#amanda` },
+        { "@id": `${siteUrl}/#jeremy` },
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#amanda`,
+      name: "Amanda Ackiss",
+      jobTitle: "REALTOR®",
+      worksFor: { "@id": `${siteUrl}/#business` },
+      sameAs: "https://www.zillow.com/profile/amanda5867",
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#jeremy`,
+      name: "Jeremy Ackiss",
+      jobTitle: "REALTOR®",
+      worksFor: { "@id": `${siteUrl}/#business` },
+      sameAs: "https://www.zillow.com/profile/jeremy2621",
+    },
+  ],
+};
 ---
 
-<Base>
+<Base jsonLd={jsonLd}>
   <Header client:load />
   <StickyCTA />
   <div class="motion-safe:animate-page-reveal origin-top">

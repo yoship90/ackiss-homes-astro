@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Page Not Found — Ackiss Homes">
+  <div class="min-h-screen bg-black flex flex-col items-center justify-center px-6 relative overflow-hidden">
+
+    <!-- Ambient glow -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 50% 60%, rgba(201,149,46,0.03) 0%, transparent 60%)"
+      aria-hidden="true"
+    ></div>
+
+    <!-- Logo watermark -->
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.07]" aria-hidden="true">
+      <img src="/logo-a-v2.svg" alt="" width="600" height="600" class="w-[70vw] max-w-2xl h-auto" />
+    </div>
+
+    <div class="relative z-10 text-center max-w-lg">
+
+      <!-- 404 -->
+      <p class="text-gold-500/50 uppercase tracking-[0.4em] text-xs mb-4">404 — Not Found</p>
+
+      <h1 class="text-4xl md:text-5xl font-heading font-bold leading-tight mb-6">
+        This page has<br />moved on.
+      </h1>
+
+      <p class="text-gray-400 leading-relaxed mb-10">
+        Looks like this address isn&apos;t on the market anymore.
+        Let&apos;s get you back to somewhere that is.
+      </p>
+
+      <a
+        href="/"
+        class="inline-block bg-gold-500 hover:bg-gold-600 text-dark-900 font-semibold px-8 py-4 rounded-sm text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(201,149,46,0.25)] hover:shadow-[0_0_30px_rgba(201,149,46,0.4)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 active:scale-[0.97] transition-[background-color,box-shadow,transform] duration-300"
+      >
+        Back to Home
+      </a>
+
+      <div class="mt-8 flex items-center justify-center gap-2">
+        <div class="h-px w-8 bg-gold-500/20"></div>
+        <p class="text-xs text-gray-600 uppercase tracking-[0.25em]">Ackiss Homes &mdash; Virginia Beach</p>
+        <div class="h-px w-8 bg-gold-500/20"></div>
+      </div>
+
+    </div>
+  </div>
+</Base>
