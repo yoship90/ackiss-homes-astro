@@ -1,0 +1,66 @@
+---
+import "../styles/global.css";
+import playfairUrl from "@fontsource/playfair-display/files/playfair-display-latin-700-normal.woff2?url";
+import interUrl from "@fontsource/inter/files/inter-latin-400-normal.woff2?url";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Ackiss Homes — Virginia Beach Real Estate",
+  description = "Buying, selling, or investing in Virginia Beach and Hampton Roads? Ackiss Homes brings local expertise, integrity, and a client-first approach to every transaction.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/favicon-package/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="/favicon-package/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-package/favicon-96x96.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon-package/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon-package/site.webmanifest" />
+    <link rel="preload" href={playfairUrl} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interUrl} as="font" type="font/woff2" crossorigin />
+  </head>
+  <body>
+    <slot />
+  <script>
+    // Save scroll position before page unloads
+    window.addEventListener("beforeunload", () => {
+      sessionStorage.setItem("scrollPos", String(window.scrollY));
+    });
+
+    window.addEventListener("load", () => {
+      const saved = parseInt(sessionStorage.getItem("scrollPos") || "0");
+      sessionStorage.removeItem("scrollPos");
+      if (saved > 0) {
+        window.scrollTo(0, saved); // Restore instantly (invisible — page-reveal is fading in)
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 400); // Scroll to top once partially visible
+      }
+
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in-view"); observer.unobserve(e.target); } }),
+        { threshold: 0.15 }
+      );
+      document.querySelectorAll(".sr").forEach(el => {
+        // Skip animation on mobile or if already in viewport
+        if (isMobile || el.getBoundingClientRect().top < window.innerHeight) {
+          el.classList.add("in-view");
+        } else {
+          observer.observe(el);
+        }
+      });
+    });
+  </script>
+  </body>
+</html>

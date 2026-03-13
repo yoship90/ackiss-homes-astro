@@ -1,0 +1,10 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.svelte";
+import TodoPage from "../components/TodoPage.svelte";
+---
+
+<Base title="To Do — Ackiss Homes">
+  <Header client:load />
+  <TodoPage client:load />
+</Base>

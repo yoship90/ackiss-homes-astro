@@ -1,17 +1,33 @@
 ---
-
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.svelte";
+import Hero from "../components/Hero.svelte";
+import Team from "../components/Team.astro";
+import Services from "../components/Services.astro";
+import PropertyInquiry from "../components/PropertyInquiry.svelte";
+import PaymentCalculator from "../components/PaymentCalculator.svelte";
+import Testimonials from "../components/Testimonials.svelte";
+import SocialFeed from "../components/SocialFeed.astro";
+import Contact from "../components/Contact.svelte";
+import Footer from "../components/Footer.astro";
+import StickyCTA from "../components/StickyCTA.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base>
+  <Header client:load />
+  <StickyCTA />
+  <div class="motion-safe:animate-page-reveal origin-top">
+    <main>
+      <Hero client:load />
+      <Team />
+      <Services />
+      <PropertyInquiry client:load />
+      <PaymentCalculator client:load />
+      <Testimonials client:load />
+      <SocialFeed />
+      <Contact client:load />
+    </main>
+    <Footer />
+  </div>
+
+</Base>

@@ -1,0 +1,61 @@
+---
+const communities = [
+  "Virginia Beach", "Chesapeake", "Suffolk", "Portsmouth",
+  "Newport News", "Hampton", "Yorktown", "Williamsburg",
+];
+const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/profile.php?id=100090275910543" },
+  { label: "Instagram", href: "https://www.instagram.com/ackisshomes/" },
+];
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-dark-900 py-12 px-6 relative">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold-500/35 to-transparent" aria-hidden="true"></div>
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href="/">
+        <img src="/logo-full-v2.svg" alt="Ackiss Homes" width="1924" height="765" class="w-[32rem] h-auto" />
+      </a>
+      <div class="flex gap-6">
+        {socialLinks.map((link) => (
+          <a
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-gray-400 hover:text-gold-400 focus-visible:outline-none focus-visible:text-gold-400 active:opacity-70 transition-colors duration-300 uppercase tracking-wider"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="border-t border-dark-600/50 mt-8 pt-8">
+      <p class="text-xs text-gray-400 uppercase tracking-[0.2em] mb-4">Communities</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-2">
+        {communities.map((city) => (
+          <span class="text-xs text-gray-400 uppercase tracking-wider">{city}</span>
+        ))}
+      </div>
+    </div>
+
+    <div class="border-t border-dark-600/50 mt-8 pt-8">
+      <p class="text-xs text-gray-400 uppercase tracking-wider mb-1">Triumph Realty</p>
+      <p class="text-xs text-gray-400">2135 General Booth Blvd, Suite 146 &middot; Virginia Beach, VA 23454</p>
+    </div>
+
+    <div class="border-t border-dark-600/50 mt-6 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <img src="/equal-housing.svg" alt="Equal Housing Opportunity" width="52" height="52" class="invert opacity-60" />
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <a href="/privacy" class="text-xs text-gray-400 uppercase tracking-wider hover:text-gold-400 focus-visible:outline-none focus-visible:text-gold-400 transition-colors duration-300 py-2 px-1">
+          Privacy Policy
+        </a>
+        <a href="/terms" class="text-xs text-gray-400 uppercase tracking-wider hover:text-gold-400 focus-visible:outline-none focus-visible:text-gold-400 transition-colors duration-300 py-2 px-1">
+          Terms of Service
+        </a>
+        <p class="text-sm text-gray-400">&copy; {year} Ackiss Homes. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</footer>
