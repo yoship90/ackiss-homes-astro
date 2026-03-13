@@ -7,7 +7,7 @@
     { target: 50, suffix: "+", label: "5-Star Reviews" },
   ];
 
-  let revealed = $state(true);
+  let revealed = $state(false);
   let logoEl: HTMLDivElement | null = null;
   let prefersReducedMotion = $state(false);
 
@@ -70,6 +70,7 @@
       alt=""
       width="788"
       height="716"
+      fetchpriority="high"
       class="w-[65vw] md:w-[30rem] h-auto object-contain mix-blend-lighten
       [mask-image:linear-gradient(to_right,transparent,black_12%)]"
     />
