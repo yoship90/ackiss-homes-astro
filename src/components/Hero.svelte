@@ -11,7 +11,7 @@
   let logoEl: HTMLDivElement | null = null;
   let prefersReducedMotion = $state(false);
 
-  // Initialize to target values so SSR renders correct numbers immediately (LCP fix)
+  // SSR: initialize to target values so crawlers/no-JS see final numbers
   let counts = $state(stats.map(s => s.target));
 
   onMount(() => {
@@ -21,6 +21,28 @@
     mq.addEventListener("change", handler);
 
     const t = setTimeout(() => { revealed = true; }, prefersReducedMotion ? 0 : 80);
+
+    // Count-up animation — starts after stats fade in (~510ms after mount)
+    let countTimer: ReturnType<typeof setTimeout> | undefined;
+    if (!prefersReducedMotion) {
+      counts = stats.map(() => 0);
+      countTimer = setTimeout(() => {
+        const duration = 1200;
+        const fps = 60;
+        const steps = (duration / 1000) * fps;
+        let step = 0;
+        const interval = setInterval(() => {
+          step++;
+          const progress = step / steps;
+          const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+          counts = stats.map(s => Math.round(s.target * eased));
+          if (step >= steps) {
+            counts = stats.map(s => s.target);
+            clearInterval(interval);
+          }
+        }, 1000 / fps);
+      }, 510);
+    }
 
     // Parallax on logo — desktop only
     const isDesktop = window.matchMedia("(min-width: 768px)").matches;
@@ -35,6 +57,7 @@
 
     return () => {
       clearTimeout(t);
+      clearTimeout(countTimer);
       window.removeEventListener("scroll", handleScroll);
       mq.removeEventListener("change", handler);
     };
