@@ -486,11 +486,14 @@
             ctx.fillText(text, x, labelY);
           }
 
-          // Quarter labels (weekly section)
+          // Quarter labels (weekly section) — skip if too close to previous
           ctx.fillStyle = "rgba(225,161,68,0.75)";
+          let lastQX = -Infinity;
           for (const { idx, text } of quarterLabels) {
             const x = u.valToPos(idx, "x", true);
+            if (x - lastQX < 38 * dpr) continue;
             ctx.fillText(text, x, labelY);
+            lastQX = x;
           }
 
           ctx.restore();
