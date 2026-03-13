@@ -7,7 +7,7 @@
     { target: 50, suffix: "+", label: "5-Star Reviews" },
   ];
 
-  let revealed = $state(false);
+  let revealed = $state(true);
   let logoEl: HTMLDivElement | null = null;
   let prefersReducedMotion = $state(false);
 
