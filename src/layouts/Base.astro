@@ -34,15 +34,19 @@ const {
   <body>
     <slot />
   <script>
-    // Save scroll position before page unloads
+    // Save scroll position before page unloads (home page only)
     window.addEventListener("beforeunload", () => {
-      sessionStorage.setItem("scrollPos", String(window.scrollY));
+      if (window.location.pathname === "/") {
+        sessionStorage.setItem("scrollPos", String(window.scrollY));
+      } else {
+        sessionStorage.removeItem("scrollPos");
+      }
     });
 
     window.addEventListener("load", () => {
       const saved = parseInt(sessionStorage.getItem("scrollPos") || "0");
       sessionStorage.removeItem("scrollPos");
-      if (saved > 0) {
+      if (saved > 0 && window.location.pathname === "/") {
         window.scrollTo(0, saved); // Restore instantly (invisible — page-reveal is fading in)
         setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 400); // Scroll to top once partially visible
       }
