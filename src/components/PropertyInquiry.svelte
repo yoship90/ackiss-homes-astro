@@ -129,7 +129,7 @@
             <p class="text-gray-400">We'll search the MLS for homes that match and reach out to you shortly.</p>
           </div>
         {:else}
-          <form onsubmit={handleSubmit} class="space-y-6" aria-label="Home search preferences">
+          <form onsubmit={handleSubmit} method="post" class="space-y-6" aria-label="Home search preferences">
             <!-- Honeypot -->
             <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
               <label for="inquiry-website">Website</label>

@@ -111,11 +111,11 @@ export const POST: APIRoute = async ({ request }) => {
     ? ["website-lead", "website-referral"]
     : ["website-lead", "website-contact"];
 
-  try {
-    const eventData = await fubRes.json();
+  // Fire tag update without awaiting — doesn't block the response
+  fubRes.json().then((eventData) => {
     const personId = eventData?.person?.id ?? eventData?.id;
     if (personId) {
-      await fetch(`https://api.followupboss.com/v1/people/${personId}`, {
+      fetch(`https://api.followupboss.com/v1/people/${personId}`, {
         method: "PUT",
         headers: { Authorization: authHeader, "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -125,11 +125,9 @@ export const POST: APIRoute = async ({ request }) => {
             : formType === "referral" ? "Client Referral"
             : "General Inquiry",
         }),
-      });
+      }).catch(err => console.error("Failed to apply tags:", err));
     }
-  } catch (err) {
-    console.error("Failed to apply tags:", err);
-  }
+  }).catch(err => console.error("Failed to parse FUB response:", err));
 
   return new Response(JSON.stringify({ success: true }), { status: 200 });
 };

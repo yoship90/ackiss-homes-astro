@@ -79,7 +79,7 @@
           <p class="text-gray-400">We've received your message and will get back to you shortly.</p>
         </div>
       {:else}
-        <form onsubmit={handleSubmit} class="space-y-5" aria-label="Contact us">
+        <form onsubmit={handleSubmit} method="post" class="space-y-5" aria-label="Contact us">
           <!-- Honeypot -->
           <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
             <label for="contact-website">Website</label>
