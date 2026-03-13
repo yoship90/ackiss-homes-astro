@@ -102,7 +102,7 @@
       width="788"
       height="716"
       fetchpriority="high"
-      class="w-[65vw] md:w-[30rem] h-auto object-contain mix-blend-lighten
+      class="w-[65vw] md:w-[30rem] h-auto object-contain
       [mask-image:linear-gradient(to_right,transparent,black_12%)]"
     />
   </div>
