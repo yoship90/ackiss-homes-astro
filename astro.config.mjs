@@ -31,5 +31,6 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
 
+  output: 'static',
   adapter: vercel()
 });
