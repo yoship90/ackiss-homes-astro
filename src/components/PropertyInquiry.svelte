@@ -178,7 +178,7 @@
                   <input type="text" inputmode="decimal"
                     value={priceMin}
                     oninput={(e) => { const el = e.currentTarget as HTMLInputElement; priceMin = formatPrice(el.value); el.value = priceMin; }}
-                    placeholder="200,000"
+                    placeholder="Min"
                     class="w-full bg-dark-800 border border-dark-600 rounded-sm pl-7 pr-3 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" />
                 </div>
                 <span class="text-gray-600 flex-shrink-0">–</span>
@@ -187,7 +187,7 @@
                   <input type="text" inputmode="decimal"
                     value={priceMax}
                     oninput={(e) => { const el = e.currentTarget as HTMLInputElement; priceMax = formatPrice(el.value); el.value = priceMax; }}
-                    placeholder="500,000"
+                    placeholder="Max"
                     class="w-full bg-dark-800 border border-dark-600 rounded-sm pl-7 pr-3 py-2.5 text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors text-sm" />
                 </div>
               </div>
