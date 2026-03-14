@@ -10,22 +10,32 @@
 <!-- ── Review Page ────────────────────────────────────────────────── -->
 <div class="min-h-screen bg-black flex flex-col animate-page-reveal">
 
-  <!-- Main -->
-  <main class="relative z-10 flex-1 flex items-center justify-center px-6 pt-20 pb-16">
+  <main class="relative z-10 flex-1 flex items-center justify-center px-6 pt-16 pb-16">
     <div class="w-full max-w-md md:max-w-lg">
 
-      <!-- Key icon -->
-      <div class="flex justify-center mb-8 md:mb-10 mt-0" aria-hidden="true">
+      <!-- Logo -->
+      <a href="/" class="flex flex-col items-center gap-2 mb-10 focus-visible:outline-none focus-visible:opacity-70">
+        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="36" height="33" class="opacity-80 h-9 w-auto" />
+        <span class="text-[9px] uppercase tracking-[0.35em] text-gold-500/60">Ackiss Homes</span>
+      </a>
+
+      <!-- Handshake icon -->
+      <div class="flex justify-center mb-8 md:mb-10" aria-hidden="true">
         <div class="relative">
           <div class="absolute inset-0 blur-2xl opacity-50"
             style="background: radial-gradient(circle, rgba(201,149,46,0.5) 0%, transparent 70%)"></div>
           <svg width="52" height="52" viewBox="0 0 52 52" fill="none"
             class="relative md:w-16 md:h-16 drop-shadow-[0_0_12px_rgba(201,149,46,0.4)]">
-            <circle cx="19" cy="19" r="12" stroke="#c9952e" stroke-width="2.5" fill="none" />
-            <circle cx="19" cy="19" r="5.5" fill="rgba(201,149,46,0.2)" stroke="#c9952e" stroke-width="1.5" />
-            <line x1="28" y1="28" x2="44" y2="44" stroke="#c9952e" stroke-width="2.5" stroke-linecap="round" />
-            <line x1="38" y1="40" x2="38" y2="46" stroke="#c9952e" stroke-width="2" stroke-linecap="round" />
-            <line x1="43" y1="44" x2="43" y2="48" stroke="#c9952e" stroke-width="2" stroke-linecap="round" />
+            <!-- Left forearm -->
+            <line x1="5" y1="47" x2="19" y2="33" stroke="#c9952e" stroke-width="3" stroke-linecap="round"/>
+            <!-- Right forearm -->
+            <line x1="47" y1="5" x2="33" y2="19" stroke="#c9952e" stroke-width="3" stroke-linecap="round"/>
+            <!-- Left hand -->
+            <path d="M19 33 L23 29 L29 27 L31 29 L29 33 L23 35 Z"
+              stroke="#c9952e" stroke-width="2" stroke-linejoin="round" fill="rgba(201,149,46,0.15)"/>
+            <!-- Right hand -->
+            <path d="M33 19 L29 23 L23 25 L21 23 L23 19 L29 17 Z"
+              stroke="#c9952e" stroke-width="2" stroke-linejoin="round" fill="rgba(201,149,46,0.15)"/>
           </svg>
         </div>
       </div>
@@ -39,12 +49,9 @@
       <p class="text-gray-400 text-center leading-relaxed text-sm md:text-base max-w-sm md:max-w-md mx-auto mb-2">
         It's been a privilege to be part of your journey. If we delivered on that promise, a quick review makes a world of difference – it helps the next family find us when they need it most.
       </p>
-      <p class="text-center text-[11px] text-gray-600 uppercase tracking-[0.2em] mb-10 md:mb-12">
+      <p class="text-center text-[11px] text-gray-600 uppercase tracking-[0.2em] mb-8 md:mb-10">
         Takes less than 2 minutes
       </p>
-
-      <!-- Divider -->
-      <div class="h-px bg-gradient-to-r from-transparent via-gold-500/25 to-transparent mb-10 md:mb-12"></div>
 
       <!-- Google Review CTA -->
       <a
@@ -65,7 +72,7 @@
       </a>
 
       <!-- Sign-off -->
-      <p class="text-center text-sm text-gray-500 mt-10 md:mt-14 leading-relaxed">
+      <p class="text-center text-sm text-gray-500 mt-8 md:mt-10 leading-relaxed">
         Thank you for trusting Ackiss Homes with one of life's biggest moments.
       </p>
 
