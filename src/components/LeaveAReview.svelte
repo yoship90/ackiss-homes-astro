@@ -80,16 +80,6 @@
         Thank you for trusting Ackiss Homes with one of life's biggest moments.
       </p>
 
-      <!-- Key — closing mark -->
-      <div class="flex justify-center mt-8 opacity-30" aria-hidden="true">
-        <svg width="40" height="40" viewBox="0 0 52 52" fill="none">
-          <circle cx="19" cy="19" r="12" stroke="#c9952e" stroke-width="2.5" fill="none" />
-          <circle cx="19" cy="19" r="5.5" fill="rgba(201,149,46,0.2)" stroke="#c9952e" stroke-width="1.5" />
-          <line x1="28" y1="28" x2="44" y2="44" stroke="#c9952e" stroke-width="2.5" stroke-linecap="round" />
-          <line x1="38" y1="40" x2="38" y2="46" stroke="#c9952e" stroke-width="2" stroke-linecap="round" />
-          <line x1="43" y1="44" x2="43" y2="48" stroke="#c9952e" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      </div>
 
     </div>
   </main>
