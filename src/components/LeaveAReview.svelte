@@ -6,21 +6,24 @@
 <div class="fixed inset-0 pointer-events-none" aria-hidden="true"
   style="background: radial-gradient(ellipse 80% 60% at 50% 35%, rgba(201,149,46,0.08) 0%, transparent 70%)"></div>
 <!-- Grain -->
-<div class="fixed inset-0 hero-grain opacity-[0.04] pointer-events-none" aria-hidden="true"></div>
+<div class="fixed inset-0 hero-grain opacity-[0.06] pointer-events-none" aria-hidden="true"></div>
 <!-- Faint A watermark -->
 <div class="fixed inset-0 flex items-center justify-center pointer-events-none overflow-hidden" aria-hidden="true">
   <img src="/logo-a-v2-optimized.svg" alt="" width="500" height="454"
     class="w-[85vw] md:w-[38rem] h-auto opacity-[0.03]" />
 </div>
 
-<div class="min-h-screen bg-black flex flex-col animate-page-reveal">
+<div class="min-h-screen bg-dark-900 flex flex-col animate-page-reveal">
   <main class="relative z-10 flex-1 flex items-center justify-center px-6 py-20">
     <div class="w-full max-w-sm md:max-w-2xl mx-auto text-center">
 
       <!-- Logo -->
       <a href="/" class="inline-flex flex-col items-center gap-3 mb-10 focus-visible:outline-none focus-visible:opacity-70">
-        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="56" height="51" class="h-14 md:h-16 w-auto opacity-90" />
-        <span class="text-[11px] uppercase tracking-[0.4em] text-gold-400">Ackiss Homes</span>
+        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="64" height="58" class="h-16 md:h-20 w-auto opacity-90" />
+        <span class="font-brand text-[1.35rem] font-semibold tracking-[0.08em] bg-clip-text text-transparent"
+          style="background-image: linear-gradient(135deg,#a06719 0%,#e1a144 20%,#f0be68 40%,#9b681a 55%,#e0a853 78%,#a06719 100%)">
+          Ackiss Homes
+        </span>
       </a>
 
       <!-- Top ornament -->
@@ -38,7 +41,7 @@
       </h1>
 
       <!-- Body -->
-      <p class="text-gray-400 leading-relaxed text-sm md:text-base mb-3">
+      <p class="text-gray-400 leading-relaxed text-sm md:text-base max-w-xl mx-auto mb-3">
         It's been a privilege to be part of your journey. If we delivered on that promise, a quick review makes a world of difference — it helps the next family find us when they need it most.
       </p>
       <p class="text-[10px] text-gray-600 uppercase tracking-[0.25em] mb-10 md:mb-12">
@@ -76,6 +79,7 @@
       <p class="text-sm text-gray-500 leading-relaxed italic">
         Thank you for trusting Ackiss Homes with one of life's biggest moments.
       </p>
+
 
     </div>
   </main>
