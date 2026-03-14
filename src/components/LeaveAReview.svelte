@@ -2,54 +2,46 @@
   const GOOGLE_REVIEW_URL = "https://maps.app.goo.gl/FFWGgPPpNy8crVKD9";
 </script>
 
-<!-- Ambient glow + grain -->
+<!-- Radial glow -->
 <div class="fixed inset-0 pointer-events-none" aria-hidden="true"
   style="background: radial-gradient(ellipse 80% 60% at 50% 35%, rgba(201,149,46,0.08) 0%, transparent 70%)"></div>
+<!-- Grain -->
 <div class="fixed inset-0 hero-grain opacity-[0.04] pointer-events-none" aria-hidden="true"></div>
+<!-- Faint A watermark -->
+<div class="fixed inset-0 flex items-center justify-center pointer-events-none overflow-hidden" aria-hidden="true">
+  <img src="/logo-a-v2-optimized.svg" alt="" width="500" height="454"
+    class="w-[85vw] md:w-[38rem] h-auto opacity-[0.03]" />
+</div>
 
-<!-- ── Review Page ────────────────────────────────────────────────── -->
 <div class="min-h-screen bg-black flex flex-col animate-page-reveal">
-
-  <main class="relative z-10 flex-1 flex items-center justify-center px-6 pt-16 pb-16">
-    <div class="w-full max-w-md md:max-w-lg">
+  <main class="relative z-10 flex-1 flex items-center justify-center px-6 py-16">
+    <div class="w-full max-w-sm mx-auto text-center">
 
       <!-- Logo -->
-      <a href="/" class="flex flex-col items-center gap-2 mb-10 focus-visible:outline-none focus-visible:opacity-70">
-        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="36" height="33" class="opacity-80 h-9 w-auto" />
-        <span class="text-[9px] uppercase tracking-[0.35em] text-gold-500/60">Ackiss Homes</span>
+      <a href="/" class="inline-flex flex-col items-center gap-2 mb-10 focus-visible:outline-none focus-visible:opacity-70">
+        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="40" height="36" class="h-10 w-auto opacity-90" />
+        <span class="text-[9px] uppercase tracking-[0.4em] text-gold-500/60">Ackiss Homes</span>
       </a>
 
-      <!-- Handshake icon -->
-      <div class="flex justify-center mb-8 md:mb-10" aria-hidden="true">
-        <div class="relative">
-          <div class="absolute inset-0 blur-2xl opacity-50"
-            style="background: radial-gradient(circle, rgba(201,149,46,0.5) 0%, transparent 70%)"></div>
-          <svg width="52" height="52" viewBox="0 0 52 52" fill="none"
-            class="relative md:w-16 md:h-16 drop-shadow-[0_0_12px_rgba(201,149,46,0.4)]">
-            <!-- Left forearm -->
-            <line x1="5" y1="47" x2="19" y2="33" stroke="#c9952e" stroke-width="3" stroke-linecap="round"/>
-            <!-- Right forearm -->
-            <line x1="47" y1="5" x2="33" y2="19" stroke="#c9952e" stroke-width="3" stroke-linecap="round"/>
-            <!-- Left hand -->
-            <path d="M19 33 L23 29 L29 27 L31 29 L29 33 L23 35 Z"
-              stroke="#c9952e" stroke-width="2" stroke-linejoin="round" fill="rgba(201,149,46,0.15)"/>
-            <!-- Right hand -->
-            <path d="M33 19 L29 23 L23 25 L21 23 L23 19 L29 17 Z"
-              stroke="#c9952e" stroke-width="2" stroke-linejoin="round" fill="rgba(201,149,46,0.15)"/>
-          </svg>
-        </div>
+      <!-- Top ornament -->
+      <div class="flex items-center justify-center mb-8" aria-hidden="true">
+        <svg width="120" height="14" viewBox="0 0 120 14" fill="none">
+          <line x1="0" y1="7" x2="50" y2="7" stroke="#c9952e" stroke-opacity="0.3" stroke-width="0.75"/>
+          <path d="M60 2 L65 7 L60 12 L55 7 Z" fill="#c9952e" fill-opacity="0.6"/>
+          <line x1="70" y1="7" x2="120" y2="7" stroke="#c9952e" stroke-opacity="0.3" stroke-width="0.75"/>
+        </svg>
       </div>
 
       <!-- Headline -->
-      <h1 class="font-heading font-bold text-5xl md:text-7xl text-center leading-[1.05] tracking-tight text-white mb-5 md:mb-7">
+      <h1 class="font-heading font-bold text-6xl md:text-8xl leading-[1.0] tracking-tight text-white mb-7 md:mb-9">
         Thank You!
       </h1>
 
       <!-- Body -->
-      <p class="text-gray-400 text-center leading-relaxed text-sm md:text-base max-w-sm md:max-w-md mx-auto mb-2">
-        It's been a privilege to be part of your journey. If we delivered on that promise, a quick review makes a world of difference – it helps the next family find us when they need it most.
+      <p class="text-gray-400 leading-relaxed text-sm md:text-base mb-3">
+        It's been a privilege to be part of your journey. If we delivered on that promise, a quick review makes a world of difference — it helps the next family find us when they need it most.
       </p>
-      <p class="text-center text-[11px] text-gray-600 uppercase tracking-[0.2em] mb-8 md:mb-10">
+      <p class="text-[10px] text-gray-600 uppercase tracking-[0.25em] mb-10 md:mb-12">
         Takes less than 2 minutes
       </p>
 
@@ -58,7 +50,7 @@
         href={GOOGLE_REVIEW_URL}
         target="_blank"
         rel="noopener noreferrer"
-        class="btn-shimmer btn-shimmer-filled flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-sm text-dark-900 font-semibold text-sm md:text-base uppercase tracking-widest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black hover:scale-[1.015] active:scale-[0.97] transition-transform duration-300"
+        class="btn-shimmer btn-shimmer-filled flex items-center justify-center gap-3 w-full py-4 md:py-5 rounded-sm text-dark-900 font-semibold text-sm uppercase tracking-widest focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black hover:scale-[1.015] active:scale-[0.97] transition-transform duration-300 mb-10 md:mb-12"
       >
         <span class="relative z-[2] flex items-center gap-3">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
@@ -71,8 +63,17 @@
         </span>
       </a>
 
+      <!-- Bottom ornament -->
+      <div class="flex items-center justify-center mb-5" aria-hidden="true">
+        <svg width="80" height="10" viewBox="0 0 80 10" fill="none">
+          <line x1="0" y1="5" x2="32" y2="5" stroke="#c9952e" stroke-opacity="0.2" stroke-width="0.75"/>
+          <path d="M40 1.5 L43.5 5 L40 8.5 L36.5 5 Z" fill="#c9952e" fill-opacity="0.3"/>
+          <line x1="48" y1="5" x2="80" y2="5" stroke="#c9952e" stroke-opacity="0.2" stroke-width="0.75"/>
+        </svg>
+      </div>
+
       <!-- Sign-off -->
-      <p class="text-center text-sm text-gray-500 mt-8 md:mt-10 leading-relaxed">
+      <p class="text-sm text-gray-500 leading-relaxed italic">
         Thank you for trusting Ackiss Homes with one of life's biggest moments.
       </p>
 
