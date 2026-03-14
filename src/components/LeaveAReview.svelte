@@ -30,16 +30,9 @@
         </div>
       </div>
 
-      <!-- Eyebrow -->
-      <div class="flex items-center justify-center gap-4 mb-5">
-        <div class="h-px w-8 bg-gold-500/40"></div>
-        <p class="text-gold-400 uppercase tracking-[0.35em] text-[10px]">Congratulations</p>
-        <div class="h-px w-8 bg-gold-500/40"></div>
-      </div>
-
       <!-- Headline -->
       <h1 class="font-heading font-bold text-5xl md:text-7xl text-center leading-[1.05] tracking-tight text-white mb-5 md:mb-7">
-        You're Home.
+        Thank You!
       </h1>
 
       <!-- Body -->
