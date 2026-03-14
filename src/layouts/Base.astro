@@ -12,6 +12,7 @@ interface Props {
 }
 
 const siteUrl = import.meta.env.PUBLIC_SITE_URL || "https://ackiss-homes-astro.vercel.app";
+const isProduction = process.env.VERCEL_ENV === "production";
 
 const {
   title = "Ackiss Homes — Virginia Beach & Hampton Roads Real Estate",
@@ -31,7 +32,7 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content={isProduction ? "index, follow" : "noindex, nofollow"} />
     <meta name="google-site-verification" content="DYn3guIYiOMqOMoT4U69IonMLftkhqEHOBsFl3rBi48" />
     <meta name="keywords" content="Virginia Beach real estate, Hampton Roads real estate, homes for sale Virginia Beach, buy a home Virginia Beach, sell a home Virginia Beach, real estate agent Virginia Beach, Ackiss Homes, Virginia Beach real estate agent, Hampton Roads homes, property listings Virginia Beach, rentals Virginia Beach, real estate consultations Virginia Beach" />
     <link rel="canonical" href={canonical} />
