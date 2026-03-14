@@ -20,7 +20,7 @@
       <!-- Logo -->
       <a href="/" class="inline-flex flex-col items-center gap-3 mb-10 focus-visible:outline-none focus-visible:opacity-70">
         <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="56" height="51" class="h-14 md:h-16 w-auto opacity-90" />
-        <span class="font-brand text-[1.35rem] font-semibold tracking-[0.08em] text-white/85">
+        <span class="font-brand text-[1.35rem] font-semibold tracking-[0.08em] text-gold-400">
           Ackiss Homes
         </span>
       </a>
