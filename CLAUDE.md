@@ -40,29 +40,31 @@
 - Do not use `transition-all`
 - Do not use default Tailwind blue/indigo as primary color
 
-# Ackiss Homes Astro Rebuild — Project Context
+# Ackiss Homes — Project Context
 
 ## Overview
-**This is a WIP rebuild of the live Ackiss Homes website using Astro 5 + Svelte 5 + Tailwind CSS 4.**
-- It is NOT live and NOT public — only accessible via Vercel preview URL
-- Do NOT deploy to any custom domain or make it publicly accessible
-- The live production site remains at https://www.ackisshomes.com (Next.js project)
-- `noindex, nofollow` is set in `src/layouts/Base.astro` and must stay that way until launch
+**Live production site at https://www.ackisshomes.com — Astro 5 + Svelte 5 + Tailwind CSS 4.**
+- Replaced the Next.js site (yoship90/ackiss-homes) — Next.js repo is now legacy/archived
+- `index, follow` is live — site is indexed by Google and Bing
+- Google Search Console and Bing Webmaster Tools verified, sitemaps submitted
 
 ## Tech Stack
 - Astro 5, Svelte 5 (runes), TypeScript, Tailwind CSS 4
-- Deployed on Vercel (auto-deploys `dev` branch to preview URL)
+- Deployed on Vercel — `master` branch = production (ackisshomes.com), `dev` branch = preview URL
 - GitHub: yoship90/ackiss-homes-astro
-- Preview URL: Vercel preview link only (no custom domain)
+- Production URL: https://www.ackisshomes.com
 - Node.js v24.x managed by nvm — path is `/c/nvm4w/nodejs`. Use `export PATH="/c/nvm4w/nodejs:$PATH"` before npm/node commands
 - GitHub CLI installed at C:/Users/Admin/gh-temp/bin/gh.exe
 - Start local dev server: `export PATH="/c/nvm4w/nodejs:$PATH" && npm run dev -- --port 3001`
 
 ## Branch & Deploy Workflow
-- All work happens on the `dev` branch
-- Pushing to `dev` auto-deploys to Vercel preview
-- There is no `master`/`main` merge flow yet — this is pre-launch WIP
-- Do NOT set up a custom domain or production environment until launch is decided
+- Work on `dev` branch → auto-deploys to Vercel preview URL
+- Merge `dev` → `master` via PR to deploy to production
+- Always use a PR — never push directly to master:
+```bash
+C:/Users/Admin/gh-temp/bin/gh.exe pr create --base master --head dev --title "Deploy: [summary]"
+```
+- After PR merge: `git fetch origin && git reset --hard origin/master && git checkout -b dev && git push origin dev --force-with-lease`
 
 ## Environment Variables
 - `FUB_API_KEY` — Follow Up Boss API key. Set in Vercel env vars (all environments) and `.env.local` (gitignored). Never committed to git.
@@ -104,6 +106,16 @@
 - `todo-feedback.ts` — GET/POST for todo board feedback data → Vercel Blob
 - `mortgage-rates.ts` — Fetches historical mortgage rates from FRED API
 
+## OG Image
+- Static file: `public/og-image.png` — served at `/og-image.png`, referenced in Base.astro meta tags
+- Generation script: `src/pages/og-image-gen.png.ts` — server endpoint using `@vercel/og` + `React.createElement`
+- **Workflow to update OG image:**
+  1. Edit `src/pages/og-image-gen.png.ts`
+  2. Push to `dev` → Vercel preview auto-deploys
+  3. Visit `/og-image-gen.png` on the preview URL — right-click → Save image
+  4. Replace `public/og-image.png` with the saved file
+  5. Commit and PR to master
+
 ## Design
 - Dark backgrounds (#0a0a0a to #2a2a2a), gold/amber accent (#c9952e)
 - Fonts: Playfair Display (headings), Inter (body) — both via `@fontsource`, preloaded in Base.astro
@@ -112,21 +124,18 @@
 - Mobile responsive with hamburger nav
 
 ## Key Decisions
-- Shared Vercel Blob store with the Next.js project — `/todo` feedback data is the same across both sites
-- FUB integration identical to Next.js site — same tags, same API route structure
-- `noindex, nofollow` stays on until launch decision is made
-- No MLS iframe, no Listings section, no Neighborhoods section yet (not yet ported)
+- FUB integration: Contact and PropertyInquiry forms push leads via `/api/lead` → FUB `/v1/events`. Tags: `website-lead` + `website-contact` or `website-property-inquiry`
+- Shared Vercel Blob store — `/todo` feedback data persists via Vercel Blob
+- Google Business Profile live: https://maps.app.goo.gl/FFWGgPPpNy8crVKD9 — added to JSON-LD `sameAs`
+- No MLS iframe, no Listings section, no Neighborhoods section (not yet ported from Next.js)
 
-## Relationship to Live Next.js Site
-- The Next.js site (`yoship90/ackiss-homes`) is the live production site — do not break it
-- This Astro rebuild is being developed in parallel as a potential replacement
-- Features and content should stay in sync with the live site
-- The `/todo` page is an internal tool shared between both projects
-
-## Future TODO (Astro rebuild)
-- **Port remaining sections:** Listings, MLS iframe, Neighborhoods
-- **About section:** Add `SplitHeading` word-by-word reveal to match live site
-- **Launch checklist:** Flip noindex → index in `Base.astro`, set up custom domain, verify all content
-- **Google Business Profile:** Add review link in About/LeaveAReview once URL is available
+## Future TODO
+- **Google Reviews:** Priority — Amanda/Jeremy should send past clients the GBP review link. Zero Google reviews currently despite 64 Zillow reviews.
+- **GBP:** Add business hours in GBP dashboard (currently flagged as missing)
+- **GBP:** Add team/cover photo to GBP
 - **Instagram:** Connect feed via Behold widget in `SocialFeed.astro`
+- **Calendly:** Add "Schedule a Free Consultation" booking integration
+- **Port remaining sections:** Listings, MLS iframe, Neighborhoods
 - **uPlot chart:** Fix x-axis labels (only showing 6 of 7 year labels, no quarter labels)
+- **FUB:** Email drip campaigns for cold leads, wire up featured listings API
+- **Family photo:** Get portrait-cropped version from Amanda/Jeremy for better mobile optimization
