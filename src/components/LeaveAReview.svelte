@@ -65,7 +65,7 @@
       </a>
 
       <!-- Sign-off -->
-      <p class="text-center text-[11px] text-gray-700 mt-10 md:mt-14 leading-relaxed">
+      <p class="text-center text-sm text-gray-500 mt-10 md:mt-14 leading-relaxed">
         Thank you for trusting Ackiss Homes with one of life's biggest moments.
       </p>
 
