@@ -14,8 +14,8 @@
 </div>
 
 <div class="min-h-screen bg-black flex flex-col animate-page-reveal">
-  <main class="relative z-10 flex-1 flex items-center justify-center px-6 py-16">
-    <div class="w-full max-w-sm mx-auto text-center">
+  <main class="relative z-10 flex-1 flex items-center justify-center px-6 py-20">
+    <div class="w-full max-w-sm md:max-w-2xl mx-auto text-center">
 
       <!-- Logo -->
       <a href="/" class="inline-flex flex-col items-center gap-2 mb-10 focus-visible:outline-none focus-visible:opacity-70">
