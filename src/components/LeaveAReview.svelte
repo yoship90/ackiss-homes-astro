@@ -18,9 +18,9 @@
     <div class="w-full max-w-sm md:max-w-2xl mx-auto text-center">
 
       <!-- Logo -->
-      <a href="/" class="inline-flex flex-col items-center gap-2 mb-10 focus-visible:outline-none focus-visible:opacity-70">
-        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="40" height="36" class="h-10 w-auto opacity-90" />
-        <span class="text-[9px] uppercase tracking-[0.4em] text-gold-500/60">Ackiss Homes</span>
+      <a href="/" class="inline-flex flex-col items-center gap-3 mb-10 focus-visible:outline-none focus-visible:opacity-70">
+        <img src="/logo-a-v2-optimized.svg" alt="Ackiss Homes" width="56" height="51" class="h-14 md:h-16 w-auto opacity-90" />
+        <span class="text-[11px] uppercase tracking-[0.4em] text-gold-400">Ackiss Homes</span>
       </a>
 
       <!-- Top ornament -->
